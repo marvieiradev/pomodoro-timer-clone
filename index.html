@@ -5,5 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pomodoro Timer</title>
   </head>
-  <body></body>
+  <body>
+    <div class="container">
+      <div class="tomato">
+        <div class="progress-ring">
+          <svg class="progress-ring__svg" width="300" height="300">
+            <circle
+              class="progress-ring__circle"
+              stroke="#ffffff"
+              stroke-width="8"
+              fill="transparent"
+              r="144"
+              cx="150"
+              cy="150"
+            />
+          </svg>
+        </div>
+        <div class="timer">
+          <span id="minutes">58</span>:<span id="seconds">00</span>
+        </div>
+      </div>
+      <div class="controls">
+        <button id="startPauseBtn" class="btn">
+          <i class="fa-solid fa-play"></i>
+        </button>
+        <button id="resetBtn" class="btn">
+          <i class="fa-solid fa-rotate-left"></i>
+        </button>
+        <button id="settingsBtn" class="btn">
+          <i class="fa-solid fa-gear"></i>
+        </button>
+      </div>
+      <div class="mode-select">
+        <button id="pomodoro" class="button-active">Pomodoro</button>
+        <button id="shortBreakButton" class="btn">Pausa Curta</button>
+        <button id="longBreakButton" class="btn">Pausa Longa</button>
+      </div>
+    </div>
+
+    <div id="settingsPopup" class="popup">
+      <h2>Configurações</h2>
+      <div class="settings-group">
+        <label for="pomodoroTimer">Pomodoro (minutos)</label>
+        <input type="number" id="pomodoroTimer" min="1" max="60" value="25" />
+      </div>
+
+      <div class="settings-group">
+        <label for="shortBreakTime">Pausa Curta (minutos)</label>
+        <input type="number" id="shortBreakTime" min="1" max="60" value="25" />
+      </div>
+
+      <div class="settings-group">
+        <label for="longBreaktime">Pomodoro (minutos)</label>
+        <input type="number" id="longBreaktime" min="1" max="60" value="25" />
+      </div>
+    </div>
+    <audio src="" id="notificationSound"></audio>
+    <script
+      src="https://kit.fontawesome.com/8e4a25e86e.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="timer.js"></script>
+  </body>
 </html>
