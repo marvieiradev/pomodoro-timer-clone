@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Pomodoro Timer</title>
   </head>
   <body>
@@ -37,7 +38,7 @@
         </button>
       </div>
       <div class="mode-select">
-        <button id="pomodoro" class="button-active">Pomodoro</button>
+        <button id="pomodoro" class="btn active">Pomodoro</button>
         <button id="shortBreakButton" class="btn">Pausa Curta</button>
         <button id="longBreakButton" class="btn">Pausa Longa</button>
       </div>
@@ -60,7 +61,7 @@
         <input type="number" id="longBreaktime" min="1" max="60" value="25" />
       </div>
     </div>
-    <audio src="" id="notificationSound"></audio>
+    <audio src="alarm.mp3" id="notificationSound"></audio>
     <script
       src="https://kit.fontawesome.com/8e4a25e86e.js"
       crossorigin="anonymous"
