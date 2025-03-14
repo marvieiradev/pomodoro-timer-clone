@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -23,7 +23,7 @@
           </svg>
         </div>
         <div class="timer">
-          <span id="minutes">58</span>:<span id="seconds">00</span>
+          <span id="minutes">25</span>:<span id="seconds">00</span>
         </div>
       </div>
       <div class="controls">
@@ -48,8 +48,8 @@
       <div class="popup-content">
         <h2>Configurações</h2>
         <div class="settings-group">
-          <label for="pomodoroTimer">Pomodoro (minutos)</label>
-          <input type="number" id="pomodoroTimer" min="1" max="60" value="25" />
+          <label for="pomodoroTime">Pomodoro (minutos)</label>
+          <input type="number" id="pomodoroTime" min="1" max="60" value="25" />
         </div>
 
         <div class="settings-group">
@@ -58,15 +58,15 @@
         </div>
 
         <div class="settings-group">
-          <label for="longBreaktime">Pomodoro (minutos)</label>
-          <input type="number" id="longBreaktime" min="1" max="60" value="15" />
+          <label for="longBreakTime">Pomodoro (minutos)</label>
+          <input type="number" id="longBreakTime" min="1" max="60" value="15" />
         </div>
 
         <button id="saveSettingsBtn" class="btn">Salvar</button>
         <button id="closeSettingsBtn" class="btn">Fechar</button>
       </div>
     </div>
-    <audio src="alarm.mp3" id="notificationSound"></audio>
+    <audio src="/src/alarm.mp3" id="notificationSound"></audio>
     <script
       src="https://kit.fontawesome.com/8e4a25e86e.js"
       crossorigin="anonymous"

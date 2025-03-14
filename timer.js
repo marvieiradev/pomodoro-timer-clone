@@ -55,7 +55,6 @@ class PomodoroTimer {
     };
 
     this.minutesElement = document.getElementById("minutes");
-
     this.secondsElement = document.getElementById("seconds");
     this.startPauseBtn = document.getElementById("startPauseBtn");
     this.resetBtn = document.getElementById("resetBtn");
@@ -92,7 +91,7 @@ class PomodoroTimer {
   initTimer() {
     this.timer.onTick = (minutes, seconds) => {
       this.updateDisplay(minutes, seconds);
-      const totalSeconds = this.settings[this.node] * 60;
+      const totalSeconds = this.settings[this.mode] * 60;
       const remainingSeconds = minutes * 60 + seconds;
       this.updateProgressRing(remainingSeconds, totalSeconds);
     };
@@ -128,12 +127,12 @@ class PomodoroTimer {
     this.isRuning = false;
     this.updateStartPauseBtn();
     this.updateModeButtons();
-    this.updateProgressRing(this.settings[mode] * 60, this.seconds[mode] * 60);
+    this.updateProgressRing(this.settings[mode] * 60, this.settings[mode] * 60);
   }
 
   updateDisplay(minutes, seconds) {
-    this.minutesElement.textContent = minutes.toStrig().padStart(2, "0");
-    this.secondsElement.textContent = seconds.toStrig().padStart(2, "0");
+    this.minutesElement.textContent = ("" + minutes).padStart(2, "0");
+    this.secondsElement.textContent = ("" + seconds).padStart(2, "0");
   }
 
   updateStartPauseBtn() {
@@ -165,7 +164,9 @@ class PomodoroTimer {
   }
 
   playNotificationSound() {
-    this.notificationSound.play();
+    const audio = new Audio("alarm.mp3");
+    console.log("aaaa");
+    audio.play();
   }
   openSettings() {
     this.settingsPopup.style.display = "block";
@@ -176,19 +177,24 @@ class PomodoroTimer {
   }
 
   saveSettings() {
-    this.settings.pomodoro = parseInt(document.getElementById("pomodoroTime"));
+    this.settings.pomodoro = parseInt(
+      document.getElementById("pomodoroTime").value,
+      10
+    );
     this.settings.shortBreak = parseInt(
-      document.getElementById("shortBreakTime")
+      document.getElementById("shortBreakTime").value,
+      10
     );
     this.settings.longBreak = parseInt(
-      document.getElementById("longBreakTime")
+      document.getElementById("longBreakTime").value,
+      10
     );
     this.reset();
     this.closeSettings();
   }
   updateProgressRing(remainingSeconds, totalSeconds) {
     const progress = remainingSeconds / totalSeconds;
-    const dashoffset = (this.progressRingLength = progress);
+    const dashoffset = this.progressRingLength * progress;
     this.progressRing.style.strokeDashoffset = dashoffset;
   }
 }
