@@ -1,8 +1,9 @@
 :root {
-  --tomato-red: #ff6347;
-  --tomato-dark: #a54433;
   --text-color: #ffffff;
-  --background-color: #1a1e36;
+  --background-color: #8664ff;
+  --container-color: #d7ccfa9d;
+  --button-color: #2e1099d8;
+  --button-active: #5d30ffd8;
 }
 
 body {
@@ -12,12 +13,15 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 70vh;
+  height: 90vh;
   margin: 0;
 }
 
 .container {
   text-align: center;
+  background-color: var(--container-color);
+  padding: 20px;
+  border-radius: 20px;
 }
 
 .progress-ring {
@@ -34,12 +38,12 @@ body {
   transform-origin: 50% 50%;
 }
 
-.tomato {
+.circle {
   position: relative;
   overflow: hidden;
   width: 300px;
   height: 300px;
-  background-color: var(--tomato-red);
+  background-color: var(--button-active);
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -69,12 +73,13 @@ body {
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s transform 0.1s;
-  background-color: var(--tomato-dark);
+  background-color: var(--button-active);
   color: var(--text-color);
+  margin-bottom: 13px;
 }
 
 .btn:hover {
-  background-color: var(--tomato-red);
+  background-color: var(--button-color);
 }
 
 .btn:active {
@@ -82,7 +87,7 @@ body {
 }
 
 .btn.active {
-  background-color: var(--tomato-red);
+  background-color: var(--button-color);
 }
 
 .popup {
