@@ -12,11 +12,11 @@ class Timer {
         this.totalSeconds--;
         if (this.onTick) {
           this.onTick(this.minutes, this.seconds);
-        } else {
-          this.stop();
-          if (this.onComplete) {
-            this.onComplete();
-          }
+        }
+      } else {
+        this.stop();
+        if (this.onComplete) {
+          this.onComplete();
         }
       }
     }, 1000);
@@ -94,8 +94,8 @@ class PomodoroTimer {
       const totalSeconds = this.settings[this.mode] * 60;
       const remainingSeconds = minutes * 60 + seconds;
       this.updateProgressRing(remainingSeconds, totalSeconds);
+      this.timer.onComplete = () => this.handleTimerComplete();
     };
-    this.timer.onComplete = () => this.handleTimerComplete();
   }
 
   toggleStartPause() {
@@ -145,7 +145,7 @@ class PomodoroTimer {
       btn.classList.remove("active");
     });
     switch (this.mode) {
-      case "shorBreak":
+      case "shortBreak":
         this.shortBreakBtn.classList.add("active");
         break;
       case "longBreak":
@@ -157,6 +157,7 @@ class PomodoroTimer {
   }
 
   handleTimerComplete() {
+    this.reset();
     this.isRuning = false;
     this.updateStartPauseBtn();
     this.playNotificationSound();
