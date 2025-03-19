@@ -17,10 +17,14 @@ body {
   margin: 0;
 }
 
+h1 {
+  color: var(--button-color);
+}
+
 .container {
   text-align: center;
   background-color: var(--container-color);
-  padding: 20px;
+  padding: 15px;
   border-radius: 20px;
 }
 
@@ -40,9 +44,9 @@ body {
 
 .circle {
   position: relative;
-  overflow: hidden;
-  width: 300px;
-  height: 300px;
+  overflow: visible;
+  width: 250px;
+  height: 250px;
   background-color: var(--button-active);
   border-radius: 50%;
   display: flex;
