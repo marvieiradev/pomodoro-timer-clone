@@ -133,6 +133,9 @@ class PomodoroTimer {
   updateDisplay(minutes, seconds) {
     this.minutesElement.textContent = ("" + minutes).padStart(2, "0");
     this.secondsElement.textContent = ("" + seconds).padStart(2, "0");
+    document.title = `${("" + minutes).padStart(2, "0")}:${(
+      "" + seconds
+    ).padStart(2, "0")} - Timer`;
   }
 
   updateStartPauseBtn() {
@@ -165,9 +168,7 @@ class PomodoroTimer {
   }
 
   playNotificationSound() {
-    const audio = new Audio("alarm.mp3");
-    console.log("aaaa");
-    audio.play();
+    this.notificationSound.play();
   }
   openSettings() {
     this.settingsPopup.style.display = "block";
